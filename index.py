@@ -2,10 +2,10 @@ import requests
 
 
 URL = "https://jsonplaceholder.typicode.com/users/1"
-response = requests.get(URL)
+responses = requests.get(URL)
 
-if response.status_code == 400:
-    print('Solicitud exitosa')
-    print('Data:', response.json())
+if responses.status_code == 400:
+    print('Solicitud exitos')
+    print('Data:', responses.json())
 else:
-    print('Error en la solicitud, detalles:', response.text)
+    print('Error en la solicitud, detalle:', responses.text)
