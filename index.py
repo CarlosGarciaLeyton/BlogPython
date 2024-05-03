@@ -1,5 +1,5 @@
 #Objeto
-class Auto:
+'''class Auto:
     marca = ""
     color = ""
     encendido = True
@@ -8,10 +8,10 @@ class Auto:
         self.marca = marca
         self.color = color
 
-    def encender (self):
+    def encender(self):
         self.encendido = True
 
-    def set_velocidad (self, velocidad):
+    def set_velocidad(self, velocidad):
         self.velocidad = velocidad
 
 
@@ -26,4 +26,53 @@ if auto1.encendido:
 else:
     print('el auto esta apagado')
 
-#print(f'Marca: {auto1.marca}, Color: {auto1.color}')
+
+#print(f'Marca: {auto1.marca}, Color: {auto1.color}')'''
+
+
+#HERENCIA
+
+class persona:
+    def __init__(self, nombre, edad:float, residencia):
+        self.nombre = nombre
+        self.edad = edad
+        self.residencia = residencia
+
+    def descripcion(self) :
+        print('nombre', self.nombre, 'edad:', self.edad, 'residencia', self.residencia)
+
+    def valores(self):
+            print('nombre', self.nombre, 'edad:', self.edad, 'residencia', self.residencia)
+
+
+class empleado(persona):
+    def __init__(self, salario, antiguedad, nombreEmpleado, resideciaEmpleado):
+        super().__init__("jose", 23, "chile")
+        self.salario = salario
+        self.antiguedad = antiguedad
+
+    def descripcion(self):
+
+        super().descripcion()
+        print("salario: ", self.salario, "antiguedad: ", self.antiguedad)
+
+
+
+class empleado_externo(persona):
+    def __init__(self, salario, antiguedad, nombreEmpleado, resideciaEmpleado):
+        super().__init__("jose_externo", 23, "peru")
+        self.salario = salario
+        self.antiguedad = antiguedad
+
+    def descripcion(self):
+
+        super().descripcion()
+        print("salario: ", self.salario, "antiguedad: ", self.antiguedad)
+
+jose = empleado(1500.4, 15, "jose", "chile")
+jose.descripcion()  #no puede tener la herecia de descripcion porque esta en empleado
+jose1= empleado_externo(15001, 14, "jose_externo", "peru")
+jose1.descripcion()
+
+print(isinstance(jose, empleado))
+print(isinstance(jose1, empleado_externo))
